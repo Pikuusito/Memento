@@ -1,0 +1,251 @@
+:root {
+    --bg-color: #f4f4f0;
+    --text-color: #262626;
+    --text-muted: #8c8c8c;
+    --accent-color: #ea5028;
+    --box-empty: #ffffff;
+    --box-border: #d0d0cc;
+    --box-lived: #262626;
+    --border-radius: 4px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    /* todo capitalizado por defecto */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+
+#app {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.step {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 24px;
+}
+
+.step.active {
+    display: flex;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* paso 1: ingreso de fecha */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.prompt-text {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+input[type="date"] {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--box-border);
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-family: inherit;
+    font-weight: 300;
+    padding: 12px 0;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+input[type="date"]:hover,
+input[type="date"]:focus {
+    border-color: var(--text-color);
+}
+
+/* botones */
+.btn {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 14px 40px;
+    font-size: 1.125rem;
+    font-family: inherit;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background-color: var(--text-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 10px 24px;
+    font-size: 1rem;
+}
+
+.btn-outline:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* paso 2: layout */
+.layout-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+.stats-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: sticky;
+    top: 40px;
+}
+
+.stat-main {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.stat-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-sub {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.stat-sub.note {
+    font-size: 0.875rem;
+    margin-top: 16px;
+    opacity: 0.7;
+}
+
+/* life grid */
+.grid-panel {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.life-grid {
+    display: grid;
+    grid-template-columns: repeat(52, 1fr);
+    gap: 4px;
+    /* Default desktop gap */
+    width: 100%;
+}
+
+.week-box {
+    aspect-ratio: 1 / 1;
+    background-color: var(--box-empty);
+    border: 1px solid var(--box-border);
+    border-radius: 1px;
+}
+
+.week-box.lived {
+    background-color: var(--box-lived);
+    border-color: var(--box-lived);
+}
+
+
+@media (max-width: 900px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .stats-panel {
+        position: relative;
+        top: 0;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .grid-panel {
+        justify-content: center;
+    }
+
+    .life-grid {
+        gap: 2px;
+    }
+}
+
+@media (max-width: 600px) {
+    .step {
+        padding: 32px 16px;
+        align-items: flex-start;
+    }
+
+    .prompt-text {
+        font-size: 2rem;
+    }
+
+    input[type="date"] {
+        font-size: 1.8rem;
+    }
+
+    .stat-main {
+        font-size: 2.5rem;
+    }
+
+    .stat-sub {
+        font-size: 1rem;
+    }
+
+    .life-grid {
+        gap: 1px;
+    }
+}

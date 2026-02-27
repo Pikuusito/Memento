@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visualiza tu vida en semanas. Un espacio para la reflexión.">
+    <title>Memento</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- paso 1: ingreso de fecha -->
+        <div id="step-1" class="step active">
+            <div class="container input-container">
+                <p class="prompt-text">¿Cuándo naciste?</p>
+                <div class="input-wrapper">
+                    <input type="date" id="dob-input" aria-label="Fecha de nacimiento" max="">
+                </div>
+                <button id="btn-next" class="btn">Visualizar</button>
+            </div>
+        </div>
+
+        <!-- paso 2: visualización -->
+        <div id="step-2" class="step">
+            <div class="container layout-grid">
+                <div class="stats-panel">
+                    <p id="stat-weeks" class="stat-main">0 semanas vividas</p>
+                    <div class="stat-details">
+                        <p id="stat-left" class="stat-sub">0 semanas restantes.</p>
+                        <p id="stat-percentage" class="stat-sub">0% de tu vida completada.</p>
+                        <p class="stat-sub note">Basado en una esperanza de 80 años.</p>
+                    </div>
+                    <button id="btn-back" class="btn btn-outline">Volver</button>
+                </div>
+                <div class="grid-panel">
+                    <div id="life-grid" class="life-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
