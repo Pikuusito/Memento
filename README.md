@@ -28,21 +28,17 @@ Como es una aplicación web estática, no necesitas instalar ningún servidor o 
 
 1. Clona este repositorio o descarga los archivos.
    ```bash
-   git clone https://github.com/tu-usuario/memento.git
+   git clone https://github.com/Pikuusito/Memento.git
    ```
 2. Navega a la carpeta del proyecto.
    ```bash
-   cd memento
+   cd Memento
    ```
 3. Abre el archivo `index.html` en tu navegador web preferido.
 
 ## 💡 Filosofía de Diseño
 
 El diseño de Memento busca la máxima simplicidad y legibilidad. Siguiendo el principio de "Menos, pero mejor", no incluye menús ocultos, colores distractores ni información innecesaria. El foco está puesto enteramente en la cuadrícula de tu vida y tus datos, invitando a una reflexión personal y tranquila.
-
-## 🤝 Contribuciones
-
-Si tienes sugerencias para mejorar Memento, ¡eres bienvenido/a a contribuir! Siéntete libre de abrir un *Issue* o enviar un *Pull Request*.
 
 ## 📄 Licencia
 
