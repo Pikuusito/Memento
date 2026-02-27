@@ -40,9 +40,16 @@ body {
     width: 100%;
     min-height: 100vh;
     display: none;
+    padding: 32px 24px;
+}
+
+#step-1 {
     justify-content: center;
     align-items: center;
-    padding: 32px 24px;
+}
+
+#step-2 {
+    align-items: flex-start;
 }
 
 .step.active {
@@ -204,14 +211,20 @@ input[type="date"]:focus {
 @media (max-width: 900px) {
     .layout-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 24px;
     }
 
     .stats-panel {
-        position: relative;
+        position: sticky;
         top: 0;
+        margin-top: -32px;
+        padding-top: 32px;
+        padding-bottom: 16px;
         align-items: flex-start;
-        gap: 24px;
+        gap: 16px;
+        background-color: var(--bg-color);
+        z-index: 10;
+        border-bottom: 1px solid var(--box-border);
     }
 
     .grid-panel {
@@ -225,27 +238,62 @@ input[type="date"]:focus {
 
 @media (max-width: 600px) {
     .step {
-        padding: 32px 16px;
-        align-items: flex-start;
+        padding: 16px 16px;
+    }
+
+    .input-container {
+        gap: 32px;
+        width: 100%;
     }
 
     .prompt-text {
         font-size: 2rem;
+        text-align: center;
+    }
+
+    .input-wrapper {
+        width: 100%;
     }
 
     input[type="date"] {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    #btn-next {
+        width: 100%;
+    }
+
+    .stats-panel {
+        top: 0;
+        margin-top: -16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        gap: 12px;
     }
 
     .stat-main {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
     }
 
     .stat-sub {
-        font-size: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .stat-sub.note {
+        font-size: 0.8rem;
+        margin-top: 4px;
+    }
+
+    #btn-back {
+        width: 100%;
+        margin-top: 8px;
+        padding: 12px 24px;
     }
 
     .life-grid {
-        gap: 1px;
+        grid-template-columns: repeat(26, 1fr);
+        gap: 2px;
     }
 }
